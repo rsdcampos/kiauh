@@ -183,7 +183,7 @@ function install_klipper_packages() {
 
   ### Update system package info
   status_msg "Updating package lists..."
-  if ! sudo apt-get update --allow-releaseinfo-change; then
+  if ! sudo apt-get update; then
     log_error "failure while updating package lists"
     error_msg "Updating package lists failed!"
     exit 1
