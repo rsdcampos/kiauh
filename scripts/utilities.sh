@@ -466,7 +466,7 @@ function dependency_check() {
     done
     echo
 
-    if sudo apt-get update --allow-releaseinfo-change && sudo apt-get install "${packages[@]}" -y; then
+    if sudo apt-get update && sudo apt-get install "${packages[@]}" -y; then
       ok_msg "Dependencies installed!"
     else
       error_msg "Installing dependencies failed!"
@@ -518,7 +518,7 @@ function check_system_updates() {
 
 function update_system() {
   status_msg "Updating System ..."
-  if sudo apt-get update --allow-releaseinfo-change && sudo apt-get upgrade -y; then
+  if sudo apt-get update && sudo apt-get upgrade -y; then
     print_confirm "Update complete! Check the log above!\n ${yellow}KIAUH will not install any dist-upgrades or\n any packages which have been kept back!${green}"
   else
     print_error "System update failed! Please watch for any errors printed above!"
